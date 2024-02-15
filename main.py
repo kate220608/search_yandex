@@ -6,7 +6,7 @@ from PIL import Image
 
 import parametrs_func
 
-toponym_to_find = "Москва, ул. Ак. Королева, 12"
+toponym_to_find = " ".join(sys.argv[1:])
 
 geocoder_api_server = "http://geocode-maps.yandex.ru/1.x/"
 
@@ -21,7 +21,7 @@ if not response:
     pass
 
 
-map_params = parametrs.parametrs(response)
+map_params = parametrs_func.parametrs(response)
 
 map_api_server = "http://static-maps.yandex.ru/1.x/"
 response = requests.get(map_api_server, params=map_params)
